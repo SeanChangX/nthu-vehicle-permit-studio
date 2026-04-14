@@ -1,0 +1,159 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NTHU Vehicle Permit Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="commit-bg" id="commitBg" aria-hidden="true"></div>
+    <div class="nv-glow" aria-hidden="true"></div>
+
+    <header class="nv-topbar">
+      <div class="nv-brand">
+        <span class="nv-brand-mark">NTHU</span>
+        <span class="nv-brand-sub">Vehicle Permit</span>
+      </div>
+      <nav class="nv-nav" aria-label="Main">
+        <span class="nv-nav-item is-active">Designer</span>
+        <span class="nv-nav-item">Export</span>
+      </nav>
+      <button type="button" class="nv-cta" id="headerExportBtn">Export all</button>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <h1>Permit generator</h1>
+        <p class="hero-lead">
+          Bicycle and motorcycle badges. Output <strong>SVG</strong>, <strong>PNG</strong>, and
+          <strong>JPG</strong> at print size.
+        </p>
+      </section>
+
+      <section class="controls">
+        <div class="field field-color">
+          <span class="field-label">Theme color</span>
+          <div class="color-row">
+            <input id="primaryColor" type="color" value="#748e48" title="Theme" />
+            <input id="primaryHex" type="text" value="#748E48" maxlength="7" spellcheck="false" />
+          </div>
+        </div>
+
+        <fieldset class="field field-tone">
+          <legend class="field-label">Surface</legend>
+          <div class="tone-row">
+            <label class="tone-chip">
+              <input type="radio" name="tone" value="dark" checked />
+              <span>Dark</span>
+            </label>
+            <label class="tone-chip">
+              <input type="radio" name="tone" value="light" />
+              <span>Light</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <label class="field">
+          <span class="field-label">Academic year</span>
+          <input id="yearText" type="number" min="100" max="199" step="1" inputmode="numeric" value="115" />
+        </label>
+
+        <label class="field">
+          <span class="field-label">Serial (preview)</span>
+          <input id="serialText" type="text" value="X123456" />
+        </label>
+
+        <label class="field field-file">
+          <span class="field-label">Logo (SVG / PNG / JPG)</span>
+          <input id="logoInput" type="file" accept=".svg,.png,.jpg,.jpeg,image/*" />
+        </label>
+
+        <label class="field">
+          <span class="field-label">Logo size</span>
+          <div class="slider-row">
+            <input id="logoScale" type="range" min="50" max="150" value="100" />
+            <output id="logoScaleOut" for="logoScale">100%</output>
+          </div>
+        </label>
+
+        <div class="field field-color">
+          <span class="field-label">Bicycle logo color</span>
+          <div class="color-row">
+            <input id="logoTintColorBike" type="color" value="#748e48" title="Bicycle logo tint" />
+            <input
+              id="logoTintHexBike"
+              type="text"
+              value="#748E48"
+              maxlength="7"
+              spellcheck="false"
+              aria-label="Bicycle logo tint hex"
+            />
+          </div>
+        </div>
+
+        <label class="field">
+          <span class="field-label">Bicycle tint strength</span>
+          <div class="slider-row">
+            <input id="logoTintStrengthBike" type="range" min="0" max="100" value="0" />
+            <output id="logoTintStrengthBikeOut" for="logoTintStrengthBike">0%</output>
+          </div>
+        </label>
+
+        <div class="field field-color">
+          <span class="field-label">Motorcycle logo color</span>
+          <div class="color-row">
+            <input id="logoTintColorMotor" type="color" value="#748e48" title="Motorcycle logo tint" />
+            <input
+              id="logoTintHexMotor"
+              type="text"
+              value="#748E48"
+              maxlength="7"
+              spellcheck="false"
+              aria-label="Motorcycle logo tint hex"
+            />
+          </div>
+        </div>
+
+        <label class="field">
+          <span class="field-label">Motorcycle tint strength</span>
+          <div class="slider-row">
+            <input id="logoTintStrengthMotor" type="range" min="0" max="100" value="0" />
+            <output id="logoTintStrengthMotorOut" for="logoTintStrengthMotor">0%</output>
+          </div>
+        </label>
+
+        <div class="actions">
+          <button type="button" id="refreshBtn" class="btn btn-ghost">Refresh preview</button>
+          <button type="button" id="exportAllBtn" class="btn btn-primary">Export all formats</button>
+        </div>
+      </section>
+
+      <section class="preview-grid" id="preview">
+        <article class="card">
+          <div class="card-head">
+            <h2>Bicycle</h2>
+            <span class="card-meta">7 x 3 cm</span>
+          </div>
+          <div id="bikePreview" class="svg-wrap"></div>
+        </article>
+        <article class="card">
+          <div class="card-head">
+            <h2>Motorcycle</h2>
+            <span class="card-meta">Dia 6.2 cm</span>
+          </div>
+          <div id="motorPreview" class="svg-wrap"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
