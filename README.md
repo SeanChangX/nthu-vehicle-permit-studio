@@ -1,5 +1,7 @@
 # NTHU Vehicle Permit Sticker Studio
 
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fseanchangx.github.io%2Fnthu-vehicle-permit-studio%2F&up_message=online&down_message=offline&label=website)](https://seanchangx.github.io/nthu-vehicle-permit-studio/)
+
 Studio for generating NTHU vehicle permit stickers.
 
 ## Preview
