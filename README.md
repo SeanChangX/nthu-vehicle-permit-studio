@@ -2,6 +2,10 @@
 
 Studio for generating NTHU vehicle permit stickers.
 
+## Preview
+
+![NTHU Vehicle Permit Sticker Studio preview](docs/images/preview.png)
+
 ## Features
 
 - Generate two permit types:
